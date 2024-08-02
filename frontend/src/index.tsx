@@ -1,16 +1,18 @@
 import React from 'react';
-import {Container, CssBaseline, Typography} from '@mui/material';
-import {createRoot} from "react-dom/client";
-
+import { CssBaseline, ThemeProvider } from '@mui/material';
+import { createRoot } from 'react-dom/client';
+import App from './App';
+import theme from './theme';
+import { BrowserRouter } from 'react-router-dom';
 
 const domRoot = document.getElementById('root') as HTMLElement;
 const root = createRoot(domRoot);
 
 root.render(
-    <Container>
-        <CssBaseline />
-        <Typography variant="h3" component="h2" gutterBottom>
-            Welcome to the Stock Sentiment Project
-        </Typography>
-    </Container>
+  <ThemeProvider theme={theme}>
+    <BrowserRouter>
+      <CssBaseline />
+      <App />
+    </BrowserRouter>
+  </ThemeProvider>
 );
